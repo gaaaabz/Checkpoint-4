@@ -14,12 +14,6 @@ console.log(tarefas);
 const ListaTarefas = document.querySelector("#lista-tarefas");
 ListaTarefas.textContent = "Tarefas: "
 
-tarefas.forEach((tarefas) => {
-    const li = document.createElement("li");
-    li.textContent = tarefas.nome;
-    ListaTarefas.appendChild(li)
-});
-
 let botaoAdicionar = document.querySelector("#btnadicionar");
 botaoAdicionar.addEventListener("click", () => {
     const li = document.createElement("li");
@@ -28,3 +22,10 @@ botaoAdicionar.addEventListener("click", () => {
     //exercício 3
     alert("Tarefa adicionada com sucesso!");
 })
+
+//exercicio 4
+tarefas.forEach((tarefas) => {
+    const li = document.createElement("li");
+    li.textContent = tarefas.nome;
+    ListaTarefas.appendChild(li)
+});
