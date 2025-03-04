@@ -9,10 +9,11 @@ body {
 }
 
 h1 {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
-input {
+
+#idinputtarefas {
     width: 25%;
     padding: 10px;
     border: none;
@@ -20,7 +21,7 @@ input {
     margin-top: 5px;
 }
 
-button {
+#btnadicionar {
     background-color: rgb(248, 161, 176);
     color: white;
     border: none;
@@ -30,6 +31,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#btnadicionar:hover {
     background-color: rgb(228, 163, 175);
 }
