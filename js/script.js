@@ -11,21 +11,30 @@ tarefas = [...tarefas, tarefa1];
 console.log(tarefas);
 
 //exercicio 2
-const ListaTarefas = document.querySelector("#lista-tarefas");
-ListaTarefas.textContent = "Tarefas: "
+const listaTarefas = document.querySelector("#lista-tarefas");
+listaTarefas.textContent = "Tarefas: "
 
 let botaoAdicionar = document.querySelector("#btnadicionar");
 botaoAdicionar.addEventListener("click", () => {
-    const li = document.createElement("li");
-    li.textContent = document.querySelector("#idinputtarefas").value;
-    ListaTarefas.appendChild(li);
+    let novaTarefa = {
+        nome: document.querySelector("#idinputtarefas").value.trim(),
+        concluida: false}
+    tarefas.push(novaTarefa);
+    imprimirLista()
     //exercício 3
     alert("Tarefa adicionada com sucesso!");
 })
 
 //exercicio 4
-tarefas.forEach((tarefas) => {
+function imprimirLista(){
+    listaTarefas.innerHTML = "";
+    tarefas.forEach((tarefa,index) => {
+    
     const li = document.createElement("li");
-    li.textContent = tarefas.nome;
-    ListaTarefas.appendChild(li)
+    li.textContent = `${tarefa.nome} - ${tarefa.concluida == true ?"Concluída✅":"Não Concluída❌"}`;
+    listaTarefas.appendChild(li)
+
 });
+}
+imprimirLista()
+
