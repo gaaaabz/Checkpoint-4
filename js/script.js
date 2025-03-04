@@ -18,14 +18,18 @@ botaoAdicionar.addEventListener("click", () => {
     let novaTarefa = {
         nome: document.querySelector("#idinputtarefas").value.trim(),
         concluida: false}
+    if (novaTarefa.nome == ""){
+        alert("Preencha o campo corretamente")
+        return
+    }
     tarefas.push(novaTarefa);
-    imprimirLista()
+    imprimirLista(tarefas)
     //exercício 3
     alert("Tarefa adicionada com sucesso!");
 })
 
 //exercicio 4
-function imprimirLista(){
+function imprimirLista(tarefas){
     listaTarefas.innerHTML = "";
     listaTarefas.textContent = "Tarefas: "
     tarefas.forEach((tarefa,index) => {
@@ -44,5 +48,11 @@ function imprimirLista(){
 
 });
 }
-imprimirLista()
+imprimirLista(tarefas)
+//exercicio6
+let botaoPendentes = document.querySelector("#btnpendentes")
+botaoPendentes.addEventListener("click", () => {
+    listaPendentes = tarefas.filter(tarefa => tarefa.concluida == false)
+    imprimirLista(listaPendentes)
+})
 
