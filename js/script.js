@@ -91,3 +91,11 @@ botaoCalcular.addEventListener("click", () => {
 const {nome, concluida} = tarefas[0];
 console.log(nome, concluida);
 
+//exercicio10
+function criarTarefa(id, nome, concluida){
+    let novaTarefa = {
+        id : id,
+        nome: nome,
+        concluida: concluida};
+    tarefas.push(novaTarefa);
+};
