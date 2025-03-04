@@ -5,7 +5,6 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    ;
 }
 
 h1 {
@@ -33,4 +32,8 @@ button {
 
 button:hover {
     background-color: rgb(228, 163, 175);
+}
+
+ul {
+    list-style: none;
 }

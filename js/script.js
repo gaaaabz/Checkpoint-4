@@ -43,11 +43,22 @@ function imprimirLista(tarefas){
         imprimirLista(tarefas);
     })
     li.appendChild(botaoConcluido);
+
+    //implementação extra
+    botaoExcluir = document.createElement("button");
+    botaoExcluir.textContent = "Excluir";
+    botaoExcluir.style.backgroundColor = "red";
+    botaoExcluir.style.marginLeft = "10px";
+    botaoExcluir.addEventListener("click", () => {
+        tarefas.splice(index, 1);
+        imprimirLista(tarefas);
+
+    })
+    li.appendChild(botaoExcluir)
     listaTarefas.appendChild(li);
 
 });
 }
-imprimirLista(tarefas);
 
 //exercicio6
 let botaoPendentes = document.querySelector("#btnpendentes");
@@ -80,7 +91,7 @@ botaoCalcular.addEventListener("click", () => {
             alert("Apenas uma tarefa concluída");
             break;
         case tarefas.length:
-            alert("Parabéns! Todas as tarefas concluídas");
+            alert("Parabéns! Todas as tarefas foram concluídas");
             break;
         default:
             alert(`Você concluiu ${tarefasConcluidas} tarefas`)
@@ -99,3 +110,18 @@ function criarTarefa(id, nome, concluida){
         concluida: concluida};
     tarefas.push(novaTarefa);
 };
+
+//Desafio
+function criarTarefasRest(...novasTarefas) {
+    for (let tarefa of novasTarefas) {
+        tarefas.push(tarefa); 
+    }
+}
+
+criarTarefasRest(
+    { id: "0001", nome: "Lição de Java", concluida: false },
+    { id: "0002", nome: "Alimentar gato", concluida: true },
+    { id: "0003", nome: "Lavar a louça", concluida: true }
+);
+
+imprimirLista(tarefas);
