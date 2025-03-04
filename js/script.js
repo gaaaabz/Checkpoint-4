@@ -32,8 +32,7 @@ botaoAdicionar.addEventListener("click", () => {
 function imprimirLista(tarefas){
     listaTarefas.innerHTML = "";
     listaTarefas.textContent = "Tarefas: "
-    tarefas.forEach((tarefa,index) => {
-    
+    tarefas.forEach((tarefa,index) => { 
     const li = document.createElement("li");
     //exercicio5
     li.textContent = `${tarefa.nome} - ${tarefa.concluida == true ?"Concluída✅":"Não Concluída❌"}`;
@@ -41,20 +40,20 @@ function imprimirLista(tarefas){
     botaoConcluido.textContent = tarefa.concluida ? "Não concluido" : "Concluir"
     botaoConcluido.addEventListener("click", () => {
         tarefa.concluida = !tarefa.concluida
-        imprimirLista()
+        imprimirLista(tarefas);
     })
-    li.appendChild(botaoConcluido)
-    listaTarefas.appendChild(li)
+    li.appendChild(botaoConcluido);
+    listaTarefas.appendChild(li);
 
 });
 }
-imprimirLista(tarefas)
+imprimirLista(tarefas);
 
 //exercicio6
-let botaoPendentes = document.querySelector("#btnpendentes")
+let botaoPendentes = document.querySelector("#btnpendentes");
 botaoPendentes.addEventListener("click", () => {
-    listaPendentes = tarefas.filter(tarefa => tarefa.concluida == false)
-    imprimirLista(listaPendentes)
+    listaPendentes = tarefas.filter(tarefa => tarefa.concluida == false);
+    imprimirLista(listaPendentes);
 })
 
 //exercicio7
@@ -66,3 +65,24 @@ let tarefasMaiusculas = tarefas.map(tarefa => {
 });
 console.log(tarefasMaiusculas);
 
+//exercicio8
+let botaoCalcular = document.querySelector("#btncalcular");
+botaoCalcular.addEventListener("click", () => {
+    let tarefasConcluidas = tarefas.reduce((finalizados, tarefa) => {
+        return tarefa.concluida ? finalizados + 1 : finalizados;
+    }, 0);
+    console.log(tarefasConcluidas)
+    switch (tarefasConcluidas){
+        case 0: 
+            alert("Nenhuma tarefa concluída");
+            break;
+        case 1:
+            alert("Apenas uma tarefa concluída");
+            break;
+        case tarefas.length:
+            alert("Parabéns! Todas as tarefas concluídas");
+            break;
+        default:
+            alert(`Você concluiu ${tarefasConcluidas} tarefas`)
+    }
+})
