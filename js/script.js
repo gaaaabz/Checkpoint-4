@@ -86,3 +86,8 @@ botaoCalcular.addEventListener("click", () => {
             alert(`Você concluiu ${tarefasConcluidas} tarefas`)
     }
 })
+
+//exercicio9
+const {nome, concluida} = tarefas[0];
+console.log(nome, concluida);
+
