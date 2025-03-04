@@ -25,4 +25,6 @@ botaoAdicionar.addEventListener("click", () => {
     const li = document.createElement("li");
     li.textContent = document.querySelector("#idinputtarefas").value;
     ListaTarefas.appendChild(li);
+    //exercício 3
+    alert("Tarefa adicionada com sucesso!");
 })
