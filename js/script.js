@@ -9,3 +9,20 @@ let tarefa1 =
 
 tarefas = [...tarefas, tarefa1];
 console.log(tarefas);
+
+//exercicio 2
+const ListaTarefas = document.querySelector("#lista-tarefas");
+ListaTarefas.textContent = "Tarefas: "
+
+tarefas.forEach((tarefas) => {
+    const li = document.createElement("li");
+    li.textContent = tarefas.nome;
+    ListaTarefas.appendChild(li)
+});
+
+let botaoAdicionar = document.querySelector("#btnadicionar");
+botaoAdicionar.addEventListener("click", () => {
+    const li = document.createElement("li");
+    li.textContent = document.querySelector("#idinputtarefas").value;
+    ListaTarefas.appendChild(li);
+})
