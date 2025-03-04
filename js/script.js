@@ -49,10 +49,20 @@ function imprimirLista(tarefas){
 });
 }
 imprimirLista(tarefas)
+
 //exercicio6
 let botaoPendentes = document.querySelector("#btnpendentes")
 botaoPendentes.addEventListener("click", () => {
     listaPendentes = tarefas.filter(tarefa => tarefa.concluida == false)
     imprimirLista(listaPendentes)
 })
+
+//exercicio7
+let tarefasMaiusculas = tarefas.map(tarefa => {
+    return {
+        nome: tarefa.nome.toUpperCase(),
+        concluida: tarefa.concluida
+    };
+});
+console.log(tarefasMaiusculas);
 
