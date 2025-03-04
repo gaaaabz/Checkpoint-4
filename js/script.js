@@ -12,7 +12,6 @@ console.log(tarefas);
 
 //exercicio 2
 const listaTarefas = document.querySelector("#lista-tarefas");
-listaTarefas.textContent = "Tarefas: "
 
 let botaoAdicionar = document.querySelector("#btnadicionar");
 botaoAdicionar.addEventListener("click", () => {
@@ -28,10 +27,19 @@ botaoAdicionar.addEventListener("click", () => {
 //exercicio 4
 function imprimirLista(){
     listaTarefas.innerHTML = "";
+    listaTarefas.textContent = "Tarefas: "
     tarefas.forEach((tarefa,index) => {
     
     const li = document.createElement("li");
+    //exercicio5
     li.textContent = `${tarefa.nome} - ${tarefa.concluida == true ?"Concluída✅":"Não Concluída❌"}`;
+    botaoConcluido = document.createElement("button")
+    botaoConcluido.textContent = tarefa.concluida ? "Não concluido" : "Concluir"
+    botaoConcluido.addEventListener("click", () => {
+        tarefa.concluida = !tarefa.concluida
+        imprimirLista()
+    })
+    li.appendChild(botaoConcluido)
     listaTarefas.appendChild(li)
 
 });
